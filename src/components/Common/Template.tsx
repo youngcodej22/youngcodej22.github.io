@@ -51,6 +51,11 @@ const Template: FunctionComponent<TemplateProps> = function ({
         <meta property="fb:app_id" content="Application ID" />
         <meta property="fb:admins" content="Facebook numeric ID" />
 
+        <meta
+          name="google-site-verification"
+          content="웹 마스터 도구가 제공하는 Meta 태그"
+        />
+
         <html lang="ko" />
         {/* 검색 엔진이 엉뚱한 페이지를 표준으로 잡지 않게 canonical 설정, 그러나 html 마크업 코드 대신 gatsby-plugin으로 대체 */}
         {/* <link rel="canonical" href="<https://youngcodej22.github.io />" /> */}

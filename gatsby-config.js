@@ -96,7 +96,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://www.example.com`,
+        siteUrl: `https://youngcodej22.github.io/`,
         stripQueryString: true,
       },
     },
