@@ -28,6 +28,7 @@ Unable to copy site files to .cache EPERM: operation not permitted', ...
 3. **관리자(administrator) 터미널**에서 `gatsby build` 실행. 에러 없이 build 설공
 4. **관리자(administrator) 터미널**에서 `gatsby develop` 실행. 문제 없이 개발 환경에서 실행 되는 것을 확인.
 5. 그래도 안된다면 그냥 `.cache`폴더를 삭제하고 다시 실행해보자
+6. `.cache` 삭제를 편하게 하기 위해서 `"deploy": "gatsby clean && gatsby build && gh-pages -d public -b main"`를 설정하였다. (배포 할 때 `gatsby clean`으로 인해서 `.cache`를 삭제 후 배포 처리)
 
 ---
 

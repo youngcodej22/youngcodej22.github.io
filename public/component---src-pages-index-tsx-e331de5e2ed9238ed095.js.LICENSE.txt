@@ -1,0 +1,1 @@
+//! 파싱한 category 값을 통해 postitem만 띄워주기
