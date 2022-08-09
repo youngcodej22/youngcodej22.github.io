@@ -51,9 +51,15 @@ const Template: FunctionComponent<TemplateProps> = function ({
         <meta property="fb:app_id" content="Application ID" />
         <meta property="fb:admins" content="Facebook numeric ID" />
 
+        {/* https://search.google.com/search-console */}
+        {/* URL 접두어 > HTML태그 방식 */}
         <meta
           name="google-site-verification"
-          content="웹 마스터 도구가 제공하는 Meta 태그"
+          content="7RSa14QWYUjkdmCVpjQoC-IENRfH2yhjuafH6qPYeEY"
+        />
+        <meta
+          name="naver-site-verification"
+          content="379dd56578ce5fbdde7107ce132ac7ce59d6195c"
         />
 
         <html lang="ko" />
