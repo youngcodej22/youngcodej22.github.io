@@ -20,6 +20,7 @@ type ReturnValue = {
 }
 
 export const useSiteMetadata = () => {
+  // useStaticQuery: component안에 query 작성 시 사용
   const data = useStaticQuery<ReturnValue>(graphql`
     query {
       site {

@@ -8,6 +8,7 @@
 const path = require('path')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+// ! tsconfig에서 path 설정을 위한 설정
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   const output = getConfig().output || {}

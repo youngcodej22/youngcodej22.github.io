@@ -129,6 +129,7 @@ export default IndexPage
 // 나중에 Gatsby Head api로 migration 필요
 // export const Head: HeadFC<IndexPageProps> = () => <SEO />
 
+// ! gatsby는 내부적으로 query를 export시 props로 전달해준다.
 // file부분 lazy-loading 적용
 export const getPostList = graphql`
   query getPostList {
