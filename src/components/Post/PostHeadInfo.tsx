@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import { navigate } from 'gatsby'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -12,11 +13,12 @@ export type PostHeadInfoProps = {
 const PostHeadInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 768px;
   height: 100%;
-  margin: 0 auto;
   padding: 60px 0;
   color: #ffffff;
+  > * {
+    font-family: 'BMJUA', sans-serif;
+  }
 
   @media (max-width: 768px) {
     width: 100%;
@@ -68,11 +70,19 @@ const PostData = styled.div`
   font-size: 18px;
   font-weight: 700;
 
+  > * {
+    font-family: inherit;
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     font-size: 15px;
     font-weight: 400;
+
+    > div {
+      margin-bottom: 4px;
+    }
   }
 `
 
@@ -81,10 +91,11 @@ const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
   date,
   categories,
 }) {
-  const goBackPage = () => window.history.back()
+  // const goBackPage = () => window.history.back()
+  const goBackPage = (): any => navigate('/', { replace: true })
 
   return (
-    <PostHeadInfoWrapper>
+    <PostHeadInfoWrapper className="inner-container">
       <PrevPageIcon onClick={goBackPage}>
         <FontAwesomeIcon icon={faArrowLeft} />
       </PrevPageIcon>

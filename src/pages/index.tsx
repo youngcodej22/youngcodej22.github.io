@@ -3,11 +3,11 @@ import {
   graphql,
   // HeadFC
 } from 'gatsby'
-import styled from '@emotion/styled'
+// import styled from '@emotion/styled'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import queryString, { ParsedQuery } from 'query-string'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
-import Introduction from 'components/Main/Introduction'
+// import Introduction from 'components/Main/Introduction'
 import PostList from 'components/Main/PostList'
 import { PostListItemType } from 'types/PostItem.types'
 import Template from 'components/Common/Template'
@@ -112,8 +112,10 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       description={description}
       url={siteUrl}
       image={publicURL}
+      profileImage={gatsbyImageData}
     >
-      <Introduction profileImage={gatsbyImageData} />
+      {/* <Introduction profileImage={gatsbyImageData} /> */}
+      {/* <SideNavigation profileImage={gatsbyImageData} /> */}
       {/* <CategoryList selectedCategory={selectedCategory} categoryList={CATEGORY_LIST} /> */}
       <CategoryList
         selectedCategory={selectedCategory}
@@ -165,7 +167,7 @@ export const getPostList = graphql`
     }
     file(name: { eq: "profile-image" }) {
       childImageSharp {
-        gatsbyImageData(width: 120, height: 120)
+        gatsbyImageData(width: 80, height: 80)
       }
       publicURL
     }

@@ -3,6 +3,9 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { PostFrontmatterType } from 'types/PostItem.types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendar as fasFaCalendar } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar as farFaCalendar } from '@fortawesome/free-regular-svg-icons'
 
 // type PostItemProps = {
 //   title: string
@@ -19,6 +22,7 @@ const PostItemWrapper = styled(Link)`
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
   transition: 0.3s box-shadow;
   cursor: pointer;
 
@@ -51,6 +55,9 @@ const PostItemContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
+  > * {
+    font-family: 'BMJUA', sans-serif;
+  }
 `
 
 const Title = styled.div`
@@ -60,7 +67,7 @@ const Title = styled.div`
   text-overflow: ellipsis;
   white-space: normal;
   overflow-wrap: break-word;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   font-size: 20px;
   font-weight: 700;
@@ -114,11 +121,18 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
 }) {
   return (
     <PostItemWrapper to={link}>
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ThumbnailImage
+        image={gatsbyImageData}
+        alt="Post Item Image"
+        objectFit="cover"
+      />
 
       <PostItemContent>
         <Title>{title}</Title>
-        <Date>{date}</Date>
+        <Date>
+          {/* <FontAwesomeIcon icon={farFaCalendar} /> */}
+          {date}
+        </Date>
         <Category>
           {categories.map(category => (
             <CategoryItem key={category}>{category}</CategoryItem>

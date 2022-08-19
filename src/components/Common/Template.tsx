@@ -1,6 +1,8 @@
 import React, { FunctionComponent, ReactNode } from 'react'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
+import SideNavigation from 'components/Common/SideNavigation'
 import Footer from 'components/Common/Footer'
 // import { HeadFC } from 'gatsby'
 // import { SEO } from '../Common/Seo'
@@ -12,12 +14,27 @@ type TemplateProps = {
   url: string
   image: string
   children: ReactNode
+  profileImage: IGatsbyImageData
 }
 
 const Container = styled.main`
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: #d6e6f0;
+`
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 250px;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 0;
+  }
 `
 
 const Template: FunctionComponent<TemplateProps> = function ({
@@ -26,6 +43,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
   url,
   image,
   children,
+  profileImage,
 }) {
   return (
     <Container>
@@ -67,7 +85,8 @@ const Template: FunctionComponent<TemplateProps> = function ({
         {/* <link rel="canonical" href="<https://youngcodej22.github.io />" /> */}
       </Helmet>
       <GlobalStyle />
-      {children}
+      <SideNavigation profileImage={profileImage} />
+      <Wrapper>{children}</Wrapper>
       <Footer />
     </Container>
   )

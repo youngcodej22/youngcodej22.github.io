@@ -7,31 +7,19 @@ type IntroductionProps = {
   profileImage: IGatsbyImageData
 }
 
-const Background = styled.div`
-  width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-  color: #ffffff;
-`
-
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 768px;
-  height: 400px;
-  margin: 0 auto;
+  flex: 1;
+  padding: 0 32px 10px;
+  text-align: center;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 300px;
-    padding: 0 20px;
+  .profile-text > * {
+    font-family: 'BMJUA', sans-serif;
+    color: #232323;
   }
 `
 
 const SubTitle = styled.div`
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 18px;
 
   @media (max-width: 768px) {
     font-size: 15px;
@@ -39,12 +27,16 @@ const SubTitle = styled.div`
 `
 
 const Title = styled.div`
-  margin-top: 5px;
-  font-size: 35px;
-  font-weight: 700;
+  margin-top: 10px;
+  font-size: 14px;
+
+  p {
+    margin-top: 10px;
+    font-size: 13px;
+  }
 
   @media (max-width: 768px) {
-    font-size: 25px;
+    /* font-size: 25px; */
   }
 `
 
@@ -52,16 +44,16 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
   profileImage,
 }) {
   return (
-    <Background>
-      <Wrapper>
-        <ProfileImage profileImage={profileImage} />
-
-        <div>
-          <SubTitle>Nice to Meet You,</SubTitle>
-          <Title>I'm Frontend Developer YoungCodeJ22.</Title>
-        </div>
-      </Wrapper>
-    </Background>
+    <Wrapper>
+      <ProfileImage profileImage={profileImage} />
+      <div className="profile-text">
+        <SubTitle>🌞 Dev Blog</SubTitle>
+        <Title>
+          YoungCodeJ22 <br />
+          <p>From The Bottom To The Top</p>
+        </Title>
+      </div>
+    </Wrapper>
   )
 }
 

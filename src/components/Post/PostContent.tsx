@@ -9,9 +9,7 @@ const MarkdownRenderer = styled.div`
   // Renderer Style
   display: flex;
   flex-direction: column;
-  width: 768px;
-  margin: 0 auto;
-  padding: 100px 0;
+  padding: 80px 0;
   word-break: break-all;
 
   // Markdown Style
@@ -28,6 +26,7 @@ const MarkdownRenderer = styled.div`
   h1,
   h2,
   h3 {
+    font-family: 'BMJUA', sans-serif;
     font-weight: 800;
     margin-bottom: 30px;
   }
@@ -103,7 +102,7 @@ const MarkdownRenderer = styled.div`
   // Markdown Responsive Design
   @media (max-width: 768px) {
     width: 100%;
-    padding: 80px 20px;
+    padding: 40px 20px;
     line-height: 1.6;
     font-size: 14px;
 
@@ -130,7 +129,12 @@ const MarkdownRenderer = styled.div`
 `
 
 const PostContent: FunctionComponent<PostContentProps> = function ({ html }) {
-  return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
+  return (
+    <MarkdownRenderer
+      className="inner-container"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  )
 }
 
 export default PostContent

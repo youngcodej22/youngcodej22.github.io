@@ -37,6 +37,7 @@ module.exports = {
           quality: 100,
           placeholder: 'blurred',
         },
+        // transformOptions: { fit: 'contain' },
       },
     },
     `gatsby-transformer-sharp`,

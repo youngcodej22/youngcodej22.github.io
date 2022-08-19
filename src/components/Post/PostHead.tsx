@@ -19,6 +19,7 @@ const PostHeadWrapper = styled.div`
   height: 400px;
 
   @media (max-width: 768px) {
+    margin-top: 54px;
     height: 300px;
   }
 `

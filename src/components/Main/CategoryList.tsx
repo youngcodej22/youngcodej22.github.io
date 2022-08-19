@@ -24,12 +24,15 @@ export type CategoryListProps = {
 const CategoryListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 768px;
-  margin: 100px auto 0;
+  margin-top: 20px;
+
+  > * {
+    font-family: 'BMJUA', sans-serif;
+  }
 
   @media (max-width: 768px) {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 80px;
     padding: 0 20px;
   }
 `
@@ -47,7 +50,9 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   margin-right: 20px;
   padding: 5px 0;
   font-size: 18px;
-  font-weight: ${({ active }) => (active ? '800' : '400')};
+  font-weight: ${({ active }) => (active ? '600' : '400')};
+  // color: ${({ active }) => (active ? '#42b6ff' : '#232323')};
+  color: ${({ active }) => (active ? '#94bdd6' : '#232323')};
   cursor: pointer;
 
   &:last-of-type {
@@ -66,7 +71,7 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
   categoryList,
 }) {
   return (
-    <CategoryListWrapper>
+    <CategoryListWrapper className="inner-container">
       {Object.entries(categoryList).map(([name, count]) => (
         <CategoryItem
           to={`/?category=${name}`}

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { PostPageItemType } from 'types/PostItem.types'
 import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
@@ -11,6 +12,12 @@ type PostTemplateProps = {
     allMarkdownRemark: {
       edges: PostPageItemType[] // 존재하지 않는 타입이므로 에러가 발생하지만 일단 작성해주세요
     }
+    file: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData
+      }
+      publicURL: string
+    }
   }
   location: {
     href: string
@@ -20,6 +27,9 @@ type PostTemplateProps = {
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
     allMarkdownRemark: { edges },
+    file: {
+      childImageSharp: { gatsbyImageData: profileGatsbyImageData },
+    },
   },
   location: { href },
 }) {
@@ -40,7 +50,13 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   } = edges[0]
 
   return (
-    <Template title={title} description={summary} url={href} image={publicURL}>
+    <Template
+      title={title}
+      description={summary}
+      url={href}
+      image={publicURL}
+      profileImage={profileGatsbyImageData}
+    >
       <PostHead
         title={title}
         date={date}
@@ -75,6 +91,12 @@ export const queryMarkdownDataBySlug = graphql`
           }
         }
       }
+    }
+    file(name: { eq: "profile-image" }) {
+      childImageSharp {
+        gatsbyImageData(width: 80, height: 80)
+      }
+      publicURL
     }
   }
 `

@@ -3,8 +3,10 @@ import {
   graphql,
   // HeadFC
 } from 'gatsby'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Global, css } from '@emotion/react'
 import styled from '@emotion/styled'
+import Template from 'components/Common/Template'
 // import { SEO } from '../components/Common/Seo'
 
 type InfoPageProps = {
@@ -14,19 +16,17 @@ type InfoPageProps = {
         title: string
         description: string
         author: string
+        siteUrl: string
       }
+    }
+    file: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData
+      }
+      publicURL: string
     }
   }
 }
-
-const globalStyle = css`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 20px;
-  }
-`
 
 const TextStyle = css`
   font-size: 18px;
@@ -50,17 +50,28 @@ const Text2 = styled('div')<{ disable: boolean }>(({ disable }) => ({
 const InfoPage: FunctionComponent<InfoPageProps> = function ({
   data: {
     site: {
-      siteMetadata: { title, description, author },
+      siteMetadata: { title, description, author, siteUrl },
+    },
+    file: {
+      childImageSharp: { gatsbyImageData },
+      publicURL,
     },
   },
 }) {
   return (
-    <div>
-      <Global styles={globalStyle} />
-      <div css={TextStyle}>{title}</div>
-      <Text1 disable={true}>{description}</Text1>
-      <Text2 disable={true}>{author}</Text2>
-    </div>
+    <Template
+      title={title}
+      description={description}
+      url={siteUrl}
+      image={publicURL}
+      profileImage={gatsbyImageData}
+    >
+      <div className="inner-container mt-init">
+        <div css={TextStyle}>{title}</div>
+        <Text1 disable={true}>{description}</Text1>
+        <Text2 disable={true}>{author}</Text2>
+      </div>
+    </Template>
   )
 }
 
@@ -76,14 +87,22 @@ export default InfoPage
 //   </SEO>
 // )
 
-export const metadataQuery = graphql`
-  {
+export const getInfo = graphql`
+  query getInfo {
     site {
       siteMetadata {
         title
         description
         author
+        siteUrl
       }
+    }
+
+    file(name: { eq: "profile-image" }) {
+      childImageSharp {
+        gatsbyImageData(width: 80, height: 80)
+      }
+      publicURL
     }
   }
 `

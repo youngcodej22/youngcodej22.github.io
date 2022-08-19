@@ -1,8 +1,8 @@
 ---
 date: '2022-08-14'
-title: '첫 프로젝트 기록'
-categories: ['React', 'Error', 'Project']
-summary: '첫 프로젝트 news app에 대한 기록'
+title: '[Project] ⛏️ News App 프로젝트 기록'
+categories: ['React', 'Project']
+summary: 'news app 프로젝트에 대한 기록'
 thumbnail: './project_main.jpg'
 ---
 
@@ -325,7 +325,7 @@ const MyReact = (function () {
 
 아래 사진은 메인 페이지에서 `...`버튼을 클릭 시 즐겨찾기 한 키워드를 편집하는 페이지로 이동하는 버튼이다.
 
-![mainPage](./mainPage.jpg)
+![mainpage](./mainpage.jpg)
 ![edit_keyword](./edit_keyword.jpg)
 ![slack_1](./slack_1.jpg)
 

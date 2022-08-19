@@ -1,7 +1,7 @@
 ---
 date: '2022-08-09'
-title: 'Gatsby Error Unable to copy site files to .cache EPERM: operation not permitted'
-categories: ['Gatsby', 'Error']
+title: '[Gatsby] 🔮 Gatsby Error Unable to copy site files to .cache EPERM: operation not permitted'
+categories: ['Gatsby']
 summary: 'Gatsby .cache EPERM Error'
 thumbnail: './gatsby_error_EPERM.png'
 ---
